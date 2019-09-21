@@ -1,8 +1,46 @@
 package com.lambton;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class StringHandling
 {
     public static void main(String[] args) {
+
+        LocalDate today = LocalDate.now();                          //Today's date
+        LocalDate birthday = LocalDate.of(1993, 05, 9);  //Birth date
+
+        Period p = Period.between(birthday, today);
+
+        System.out.println(p.getDays());
+        System.out.println(p.getMonths());
+        System.out.println(p.getYears());
+
+
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MMM/yyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(dtf.format(now));
+
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        System.out.println(formatter.format(date));
+
+        String pattern="###,###,##.00";
+        DecimalFormat format=new DecimalFormat();
+        format.applyPattern((pattern));
+
+        int value=12345678;
+        String output=format.format(value);
+        System.out.println(value + " " + pattern + " " + output);
+
         String s1="hello";
         String s2="hello";
         String s3=s1;
@@ -85,6 +123,8 @@ public class StringHandling
 
         }
        System.out.println("Reverse String: " + revstr);
+
+
     }
     }
 
