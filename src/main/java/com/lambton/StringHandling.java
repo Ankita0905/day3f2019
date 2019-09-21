@@ -56,21 +56,35 @@ public class StringHandling
         System.out.println(s5.substring(11,20));
         System.out.println(s5.toCharArray());
         System.out.println(s5.concat("265 Yorkland Blvd., North York"));
-        char c[]=s5.toCharArray();
-        char r[]=new char[c.length];
-        int cnt=0;
+
        /* for(int i=0;i<c.length; i++)
         {
             System.out.println(c[i]);
-        }*/
+        }
         for(int i=c.length-1;i>=0; i--)
         {
             r[cnt++]=c[i];
-
             // System.out.println(c[i]);
+        }*/
+        String revstr = new String();
+        String[] words = s5.split(" ");
+        for(int i = 0; i < words.length; i++)
+        {
+            //System.out.println(c[i]);
+
+            if(i % 2 != 0)
+            {
+                String rev = new StringBuffer(words[i]).reverse().toString();
+                revstr = revstr + rev;
+            }
+            else
+                {
+                    revstr = revstr + words[i];
+                }
+            revstr = revstr + " ";
+
         }
-        String reverseString=new String(r);
-        System.out.println(reverseString);
+       System.out.println("Reverse String: " + revstr);
     }
     }
 
